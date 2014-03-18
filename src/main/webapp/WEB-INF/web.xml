@@ -1,0 +1,47 @@
+<web-app version="2.4"
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  
+  <display-name>vassilis-blog</display-name>
+  
+  <!-- Definition of Front Controller of Spring MVC framework responsible for resolving HTTP requests 
+  	   We didn't need to define spring listener for loading the context; since spring-mvc by default 
+  	   will load the context with name projectname-servlet.xml i.e blog-servlet.xml-->
+  <servlet>
+  	<servlet-name>blog</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>blog</servlet-name>
+    <url-pattern>/mvc/*</url-pattern>
+  </servlet-mapping>
+	
+	<servlet>
+		<servlet-name>blogServlet</servlet-name>
+		<servlet-class>com.vassilis.blog.controlers.servlet.BlogServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>blogServlet</servlet-name>
+  		<url-pattern>/servlet/*</url-pattern>
+  	</servlet-mapping>
+</web-app>
+
+<!-- old way to load context:  spring context is loaded by spring listener -->
+<!-- 	<context-param> -->
+<!-- 	    <param-name>contextConfigLocation</param-name> -->
+<!-- 	    <param-value> -->
+<!-- 	    	/WEB-INF/applicationContext.xml -->
+<!-- 	    	/WEB-INF/applicationContext-db.xml -->
+<!-- 	   	</param-value> -->
+<!-- 	</context-param> -->
+
+<!-- 	<listener> -->
+<!-- 	   <listener-class> -->
+<!-- 	        org.springframework.web.context.ContextLoaderListener -->
+<!-- 	   </listener-class> -->
+<!-- 	</listener> -->
