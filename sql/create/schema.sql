@@ -74,4 +74,4 @@ CREATE TABLE IF NOT EXISTS country_video (
 	CONSTRAINT country_video_pk PRIMARY KEY(fk_country_name, fk_video_id)
 )ENGINE = InnoDB;
 
-/*CREATE UNIQUE INDEX post_index_date ON post(post_date);*/
+CREATE UNIQUE INDEX post_index_date ON post(post_date);
