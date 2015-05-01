@@ -1,4 +1,4 @@
-package com.vassilis.blog.model;
+package com.vassilis.blog.entities;
 
 import java.util.ArrayList;
 import java.util.List;

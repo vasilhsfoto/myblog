@@ -9,7 +9,7 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd"
        default-autowire="byName">
 	
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 	 		<list>
 	 			<value>classpath:jdbc.properties</value>
@@ -17,7 +17,7 @@
 	 		</list>
 	 	</property>
 	 	<property name="ignoreResourceNotFound" value="false" />
-	</bean>    
+	</bean>
     
     <!-- Annotations Declarations -->
     <context:annotation-config/>

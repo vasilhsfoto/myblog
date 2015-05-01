@@ -5,7 +5,7 @@
   
   <display-name>vassilis-blog</display-name>
   
-  <!-- Definition of Front Controller of Spring MVC framework responsible for resolving HTTP requests 
+  <!-- Definition of Front Controller for Spring MVC framework responsible for resolving HTTP requests 
   	   We didn't need to define spring listener for loading the context; since spring-mvc by default 
   	   will load the context with name projectname-servlet.xml i.e blog-servlet.xml-->
   <servlet>
@@ -29,6 +29,30 @@
   		<servlet-name>blogServlet</servlet-name>
   		<url-pattern>/servlet/*</url-pattern>
   	</servlet-mapping>
+  	
+<!-- 	<security-constraint> -->
+<!-- 	    <web-resource-collection> -->
+<!-- 	      <web-resource-name>.....</web-resource-name> -->
+<!-- 	      <url-pattern>/mvc/*</url-pattern> -->
+<!-- 	      <http-method>GET</http-method> -->
+<!-- 	    </web-resource-collection> -->
+	    
+<!-- 	    <auth-constraint> -->
+<!-- 	       <role-name>blog-ui</role-name> -->
+<!-- 	    </auth-constraint> -->
+<!-- 	 </security-constraint>  	 -->
+
+<!-- 	<security-role> -->
+<!-- 	    <description> -->
+<!-- 	      The role that is required to access the HTML Manager pages -->
+<!-- 	    </description> -->
+<!-- 	    <role-name>blog-gui</role-name> -->
+<!-- 	</security-role> -->
+  	
+<!--   	<login-config> -->
+<!--   		<auth-method>BASIC</auth-method> -->
+<!--   	</login-config> -->
+  	
 </web-app>
 
 <!-- old way to load context:  spring context is loaded by spring listener -->
@@ -43,5 +67,5 @@
 <!-- 	<listener> -->
 <!-- 	   <listener-class> -->
 <!-- 	        org.springframework.web.context.ContextLoaderListener -->
-<!-- 	   </listener-class> -->
+<!-- 	   </listener-cSlass> -->
 <!-- 	</listener> -->

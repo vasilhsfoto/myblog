@@ -2,8 +2,8 @@ package com.vassilis.blog.service;
 
 import java.util.List;
 
-import com.vassilis.blog.model.Post;
+import com.vassilis.blog.entities.Post;
 
 public interface PostService {
-	List<Post> getAllPosts();
+	List<Post> getAllPostsWithTags();
 }

@@ -2,15 +2,20 @@ package com.vassilis.blog.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vassilis.blog.model.Tag;
+import com.vassilis.blog.dao.TagDao;
+import com.vassilis.blog.entities.Tag;
 
-@Service("tagService")
+@Service
 public class TagServiceImpl implements TagService {
-
-	public List<Tag> getTags() {
-		return null;
+	
+	@Autowired
+	private TagDao tagDao;
+	
+	@Override
+	public List<Tag> getAllTags() {
+		return tagDao.getAllTags();
 	}
-
 }
