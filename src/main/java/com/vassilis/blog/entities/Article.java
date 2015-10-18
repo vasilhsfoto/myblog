@@ -6,40 +6,42 @@ import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Post {
-	private int post_id;
-	private String article;
+public class Article {
+	private int id;
+	private String author;
+	private String articleHtml;
+	private String articleMarkup;
 	private Date postDate;
 	private String title;
 	private String picture;
-	private int numOfPosts; 
-	
+	private int numOfPosts;
+
 	private List<Tag> tagList = new ArrayList<Tag>();
 	private List<Comment> commentList = new ArrayList<Comment>();
-	
+
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("article", article)
+		return new ToStringBuilder(this).append("article", articleHtml)
 										.append("postDate", postDate).toString();
 	}
-	
+
 	public List<Tag> getTagList() {
 		return tagList;
 	}
 	public void setTagList(List<Tag> tagList) {
 		this.tagList = tagList;
 	}
-	public int getPost_id() {
-		return post_id;
+	public int getId() {
+		return id;
 	}
-	public void setPost_id(int post_id) {
-		this.post_id = post_id;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getArticle() {
-		return article;
+	public String getArticleHtml() {
+		return articleHtml;
 	}
-	public void setArticle(String article) {
-		this.article = article;
+	public void setArticleHtml(String article) {
+		this.articleHtml = article;
 	}
 	public Date getPostDate() {
 		return postDate;
@@ -76,5 +78,21 @@ public class Post {
 
 	public void setNumOfPosts(int numOfPosts) {
 		this.numOfPosts = numOfPosts;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getArticleMarkup() {
+		return articleMarkup;
+	}
+
+	public void setArticleMarkup(String articleMarkup) {
+		this.articleMarkup = articleMarkup;
 	}
 }

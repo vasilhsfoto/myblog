@@ -10,11 +10,9 @@ import com.vassilis.blog.entities.Tag;
 
 @Service
 public class TagServiceImpl implements TagService {
-	
 	@Autowired
 	private TagDao tagDao;
 	
-	@Override
 	public List<Tag> getAllTags() {
 		return tagDao.getAllTags();
 	}

@@ -4,20 +4,20 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	
+
 	<!-- template tile-->
 	<definition name="main-template" template="/WEB-INF/ui/views/main_template.jsp">
 		<put-attribute name="header" value="/WEB-INF/ui/views/header.jsp" />
 		<put-attribute name="main-content" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/ui/views/footer.jsp"/>
 	</definition>
-	
+
 	<!-- concrete tiles are defined -->
 	<definition name="home" extends="main-template">
 		<!-- currently list of articles -->
 		<put-attribute name="main-content" value="/WEB-INF/ui/views/index.jsp"/>
 	</definition>
-	
+
 	<definition name="single-post" extends="main-template">
 		<put-attribute name="main-content" value="/WEB-INF/ui/views/single-post.jsp"/>
 	</definition>
@@ -29,5 +29,9 @@
 	<definition name="fallback" extends="main-template">
 		<put-attribute name="main-content" value="/WEB-INF/ui/views/fallback-page.jsp"/>
 	</definition>
-		
+
+	<definition name="vassilis">
+		<put-attribute name="main-content" value="/WEB-INF/ui/views/fallback-page.jsp"/>
+	</definition>
+
 </tiles-definitions>

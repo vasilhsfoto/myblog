@@ -8,7 +8,7 @@ public class User {
 	private String username;
 	private String avatar;
 	private String website;
-	
+
 	private List<Comment> comments = new ArrayList<Comment>();
 
 	public String getEmail() {

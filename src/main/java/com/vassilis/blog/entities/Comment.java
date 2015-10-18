@@ -6,7 +6,7 @@ public class Comment {
 	private String comment;
 	private Date commentDate;
 	private User user;
-	private Post post;
+	private Article post;
 	
 	public String getComment() {
 		return comment;
@@ -28,10 +28,10 @@ public class Comment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Post getPost() {
+	public Article getPost() {
 		return post;
 	}
-	public void setPost(Post post) {
+	public void setPost(Article post) {
 		this.post = post;
 	}
 }

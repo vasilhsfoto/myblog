@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tag {
-	private int tag_id;
-	private String tag;
+	private int id;
+	private String tagName;
 	
-	private List<Post> postList = new ArrayList<Post>();
+	private List<Article> postList = new ArrayList<Article>();
 	
-	public int getTag_id() {
-		return tag_id;
+	public int getId() {
+		return id;
 	}
-	public void setTag_id(int tag_id) {
-		this.tag_id = tag_id;
+	public void setId(int tag_id) {
+		this.id = tag_id;
 	}
-	public String getTag() {
-		return tag;
+	public String getTagName() {
+		return tagName;
 	}
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setTagName(String tag) {
+		this.tagName = tag;
 	}
 }

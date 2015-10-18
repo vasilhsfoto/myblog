@@ -1,4 +1,4 @@
-package com.vassilis.blog.dao.template;
+package com.vassilis.blog.dao.springtemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,29 +14,29 @@ import com.vassilis.blog.entities.Tag;
 
 @Repository
 public class TagDaoSql implements TagDao {
-	private static final String TAGS_PER_POST = "SELECT tag.tag_name FROM tag INNER JOIN post_tag ON tag.id=post_tag.fk_tag_id" +
-											    " INNER JOIN post ON post.id = post_tag.fk_post_id" +
-											    " WHERE post.id = ?";
+	private static final String TAGS_PER_POST = "SELECT tag.tag_name "
+			+ "FROM tag INNER JOIN article_tag ON tag.id=article_tag.tag_id"
+			+ " INNER JOIN article ON article.id = article_tag.article_id"
+			+ " WHERE article.id = ?";
+
 	private static final String ALL_TAGS = "SELECT tag_name FROM tag";
 	
 	@Autowired
 	private JdbcOperations jdbcTemplate;
 	
 	private static final class TagRowMapper implements RowMapper<Tag> {
-		@Override
+		
 		public Tag mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Tag tag = new Tag();
-			tag.setTag(rs.getString("tag_name"));
+			tag.setTagName(rs.getString("tag_name"));
 			return tag;
 		}
 	}
 	
-	@Override
 	public List<Tag> getTagPerPost(int postId) {
 		return jdbcTemplate.query(TAGS_PER_POST, new Integer[]{postId},new TagRowMapper());
 	}
 	
-	@Override
 	public List<Tag> getAllTags() {
 		return jdbcTemplate.query(ALL_TAGS, new TagRowMapper());
 	}
