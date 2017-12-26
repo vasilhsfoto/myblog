@@ -1,0 +1,57 @@
+@startuml
+title SD Employee Movement Tracking
+
+hide footbox
+
+actor start
+participant ":CWRuntime" as cwRuntime
+participant ":EmployeeLocationChangeHandler" as elch
+participant ":EmployeeMovementHistory" as emh
+database ":Storage" as db
+
+start [#black]-> cwRuntime : onDeviceLocationChange
+activate cwRuntime
+
+|||
+
+cwRuntime [#black]-> cwRuntime :applyRulesOnLocationChange
+activate cwRuntime
+
+|||
+
+deactivate cwRuntime
+
+cwRuntime [#black]-> elch :onDeviceLocationChange
+activate elch
+||70|
+
+elch [#black]--> cwRuntime :return
+deactivate elch
+
+cwRuntime [#black]->> emh:trackEmployeeMovement
+activate emh
+
+emh [#black]--> cwRuntime:return
+deactivate cwRuntime
+
+emh [#black]-> db:getEmployeeLocation(empId, time)
+activate db
+|||
+db [#black]--> emh:employeeLocation
+deactivate db
+
+alt employeeLocation exists for last 5 minutes
+    emh [#black]-> db:update
+    activate db
+    |||
+    deactivate db
+else employeeLocation doesn't exist for last 5 minutes
+    emh [#black]-> db:create
+    activate db
+    |||
+    deactivate db
+end
+
+deactivate emh
+
+@enduml
